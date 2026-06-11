@@ -103,8 +103,8 @@ function handleFiles(files) {
 // Teachable Machine Model Setup
 let model;
 async function initModel() {
-    const modelURL = "../model/model.json";
-    const metadataURL = "../model/metadata.json";
+    const modelURL = "./model/model.json";
+    const metadataURL = "./model/metadata.json";
     try {
         model = await tmImage.load(modelURL, metadataURL);
         console.log("Model loaded successfully");
