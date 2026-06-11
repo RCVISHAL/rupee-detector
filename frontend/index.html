@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rupee Detector AI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="assets/logo.svg" alt="Rupee Detector AI Logo">
+            <span>Rupee Detector AI</span>
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#detect">Detect</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Indian Currency Detection <span class="gradient-text">using AI</span></h1>
+            <p>Real-time machine learning inference for recognizing Indian currency notes with high confidence.</p>
+            <a href="#detect" class="cta-button">Detect Now</a>
+        </section>
+
+        <section id="detect" class="detection-section">
+            <div class="card-container">
+                <!-- Camera Detection Card -->
+                <div class="glass-card">
+                    <h2>Camera Detection</h2>
+                    <div class="video-container">
+                        <video id="videoElement" autoplay playsinline></video>
+                        <div class="overlay-scan"></div>
+                    </div>
+                    <div class="actions">
+                        <button id="openCameraBtn" class="primary-btn">Open Camera</button>
+                        <button id="captureBtn" class="secondary-btn" disabled>Capture Image</button>
+                    </div>
+                </div>
+
+                <!-- Upload Detection Card -->
+                <div class="glass-card">
+                    <h2>Upload Image</h2>
+                    <div class="upload-area" id="uploadArea">
+                        <p>Drag and drop an image here or click to browse</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                        <img id="imagePreview" alt="Image Preview" style="display: none;">
+                    </div>
+                    <div class="actions">
+                        <button id="uploadBtn" class="primary-btn">Select Image</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Common Result Area -->
+            <div class="result-area glass-card">
+                <button id="detectCurrencyBtn" class="detect-btn" disabled>Detect Currency</button>
+                <div id="loadingSpinner" class="spinner-container" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Analyzing Note...</p>
+                </div>
+                <div id="predictionResult" class="result-box" style="display: none;">
+                    <h3>Detected Note: <span id="currencyValue" class="highlight">₹---</span></h3>
+                    <p>Confidence: <span id="confidenceScore" class="highlight">--%</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section glass-card">
+            <h2>About The Project</h2>
+            <p>This is an educational project integrating an AI-based currency recognition model to detect Indian currency notes in real-time. The application processes images through a machine learning model and identifies the denomination with high accuracy.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Rupee Detector AI Project. Educational purposes only.</p>
+    </footer>
+
+    <!-- TensorFlow.js and Teachable Machine Image Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
